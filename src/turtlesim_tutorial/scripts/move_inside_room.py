@@ -34,9 +34,9 @@ def move_inside_room():
             vel.angular.z = w
             rospy.loginfo("Moving inside room")
         else:
-            vel.linear.x = -vel.linear.x  # Invertir dirección
-            vel.angular.z = -vel.angular.z  # Invertir giro
-            rospy.logwarn("Outside room limits! Changing direction.")
+            vel.linear.x = 0  # Invertir dirección
+            vel.angular.z = 0  # Invertir giro
+            rospy.logwarn("Outside room limits! Stop the turtle.")
         
         pub.publish(vel)
         rate.sleep()
